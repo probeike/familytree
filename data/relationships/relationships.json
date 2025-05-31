@@ -1,5 +1,121 @@
 {
-  "relationships": [],
+  "relationships": [
+    {
+      "id": "rel-001",
+      "person1Id": "eduard-goitein-1864",
+      "person2Id": "sd-goitein-1901",
+      "type": "parent",
+      "notes": "Father-son relationship",
+      "verified": true,
+      "source": "Birth records and family documents",
+      "createdAt": "2025-05-31T00:00:00Z",
+      "updatedAt": "2025-05-31T00:00:00Z"
+    },
+    {
+      "id": "rel-002",
+      "person1Id": "marie-goitein-1870",
+      "person2Id": "sd-goitein-1901",
+      "type": "parent",
+      "notes": "Mother-son relationship",
+      "verified": true,
+      "source": "Family records",
+      "createdAt": "2025-05-31T00:00:00Z",
+      "updatedAt": "2025-05-31T00:00:00Z"
+    },
+    {
+      "id": "rel-003",
+      "person1Id": "eduard-goitein-1864",
+      "person2Id": "marie-goitein-1870",
+      "type": "spouse",
+      "marriageDate": "1895-06-15",
+      "marriagePlace": "Burgkunstadt, Bavaria, Germany",
+      "notes": "Marriage documented in community records",
+      "verified": true,
+      "source": "Marriage certificate and community records",
+      "createdAt": "2025-05-31T00:00:00Z",
+      "updatedAt": "2025-05-31T00:00:00Z"
+    },
+    {
+      "id": "rel-004",
+      "person1Id": "eliyahu-menahem-goitein-1837",
+      "person2Id": "eduard-goitein-1864",
+      "type": "parent",
+      "notes": "Father-son relationship",
+      "verified": true,
+      "source": "Family genealogy records",
+      "createdAt": "2025-05-31T00:00:00Z",
+      "updatedAt": "2025-05-31T00:00:00Z"
+    },
+    {
+      "id": "rel-005",
+      "person1Id": "moshe-rosner-1830",
+      "person2Id": "baruch-rosner-1860",
+      "type": "parent",
+      "notes": "Father-son relationship",
+      "verified": true,
+      "source": "Jewish community records",
+      "createdAt": "2025-05-31T00:00:00Z",
+      "updatedAt": "2025-05-31T00:00:00Z"
+    },
+    {
+      "id": "rel-006",
+      "person1Id": "baruch-rosner-1860",
+      "person2Id": "salo-rosner-1895",
+      "type": "sibling",
+      "notes": "Brothers in the Rosner family",
+      "verified": true,
+      "source": "Family records and photographs",
+      "createdAt": "2025-05-31T00:00:00Z",
+      "updatedAt": "2025-05-31T00:00:00Z"
+    },
+    {
+      "id": "rel-007",
+      "person1Id": "willem-botha-1864",
+      "person2Id": "clarence-botha-1886",
+      "type": "parent",
+      "notes": "Father-son relationship",
+      "verified": true,
+      "source": "Birth certificate and family Bible",
+      "createdAt": "2025-05-31T00:00:00Z",
+      "updatedAt": "2025-05-31T00:00:00Z"
+    },
+    {
+      "id": "rel-008",
+      "person1Id": "clarence-botha-1886",
+      "person2Id": "hester-botha-1890",
+      "type": "spouse",
+      "marriageDate": "1912-04-20",
+      "marriagePlace": "South Africa",
+      "notes": "Well-documented marriage with family photographs",
+      "verified": true,
+      "source": "Marriage certificate and family photographs",
+      "createdAt": "2025-05-31T00:00:00Z",
+      "updatedAt": "2025-05-31T00:00:00Z"
+    },
+    {
+      "id": "rel-009",
+      "person1Id": "willem-gouws-1836",
+      "person2Id": "fanie-gouws-1957",
+      "type": "parent",
+      "notes": "Multi-generational relationship",
+      "verified": true,
+      "source": "Family genealogy research",
+      "createdAt": "2025-05-31T00:00:00Z",
+      "updatedAt": "2025-05-31T00:00:00Z"
+    },
+    {
+      "id": "rel-010",
+      "person1Id": "fanie-gouws-1957",
+      "person2Id": "trace-gouws-1963",
+      "type": "sibling",
+      "notes": "Brother and sister in Gouws family",
+      "verified": true,
+      "source": "Family records and photographs",
+      "createdAt": "2025-05-31T00:00:00Z",
+      "updatedAt": "2025-05-31T00:00:00Z"
+    }
+  ],
+  "totalRelationships": 10,
   "lastUpdated": "2025-05-31T00:00:00Z",
   "version": "1.0.0"
 }

@@ -1,0 +1,22 @@
+{
+  "id": "eduard-goitein-1864",
+  "firstName": "Eduard",
+  "lastName": "Goitein",
+  "birthDate": "1864-07-15",
+  "birthPlace": "Burgkunstadt, Bavaria, Germany",
+  "deathDate": "1932-11-20",
+  "deathPlace": "Burgkunstadt, Bavaria, Germany",
+  "occupation": "Merchant, Community Leader",
+  "religion": "Jewish",
+  "nationality": "German",
+  "biography": "Prominent merchant and leader of the Jewish community in Burgkunstadt. Known for his business acumen and community service.",
+  "notes": "Father of the renowned scholar S.D. Goitein. The family home in Burgkunstadt still stands today.",
+  "photos": ["eduard_goitein.jpg", "eduard_house.jpg", "eduard_house_today.jpg"],
+  "documents": ["Goitein_Eduard_1864.pdf"],
+  "spouseIds": ["marie-goitein-1870"],
+  "childrenIds": ["sd-goitein-1901"],
+  "parentIds": ["eliyahu-menahem-goitein-1837", "sara-goitein-1840"],
+  "siblingIds": [],
+  "createdAt": "2025-05-31T00:00:00Z",
+  "updatedAt": "2025-05-31T00:00:00Z"
+}

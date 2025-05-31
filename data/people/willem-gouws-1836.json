@@ -1,0 +1,23 @@
+{
+  "id": "willem-gouws-1836",
+  "firstName": "Willem Abraham Stefanus",
+  "lastName": "Gouws",
+  "nickname": "Was",
+  "birthDate": "1836-03-12",
+  "birthPlace": "Cape Colony, South Africa",
+  "deathDate": "1897-08-15",
+  "deathPlace": "South Africa",
+  "occupation": "Farmer",
+  "religion": "Dutch Reformed",
+  "nationality": "South African",
+  "biography": "Pioneer farmer in the Cape Colony. Known for his agricultural innovations and community leadership.",
+  "notes": "Ancestor of the Gouws family line. His grave stone is well preserved and documented.",
+  "photos": ["was_gouws_1836_1897_grave_stone.jpg", "was_gouws_1836_1897_grave_stone_text.jpg", "was_gouws_wedding1.jpg", "was_gouws_wedding2.jpg", "was_gouws_family_1960.jpg"],
+  "documents": ["Gouws_Willem_1836.pdf", "ances_was_gouws_1836_1897_by_kruger.pdf"],
+  "spouseIds": ["maria-gouws-1840"],
+  "childrenIds": ["fanie-gouws-1957", "trace-gouws-1963"],
+  "parentIds": [],
+  "siblingIds": [],
+  "createdAt": "2025-05-31T00:00:00Z",
+  "updatedAt": "2025-05-31T00:00:00Z"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "clarence-botha-1886",
+  "firstName": "Clarence Maxwell",
+  "lastName": "Botha",
+  "birthDate": "1886-05-22",
+  "birthPlace": "South Africa",
+  "deathDate": "1960-12-10",
+  "deathPlace": "South Africa",
+  "occupation": "Farmer, Businessman",
+  "religion": "Dutch Reformed",
+  "nationality": "South African",
+  "biography": "Successful farmer and businessman. Known for his progressive farming methods and family values.",
+  "notes": "Well-documented family man with extensive photographic records of family gatherings.",
+  "photos": ["clarence_botha_and_wife.jpg", "clarence_botha_family_1935.jpg", "takman_botha_family.jpg"],
+  "documents": ["Botha_Clarence_Maxwell_1886.pdf"],
+  "spouseIds": ["hester-botha-1890"],
+  "childrenIds": ["maxwell-botha-1920", "marie-botha-1925"],
+  "parentIds": ["willem-botha-1864", "anna-botha-1865"],
+  "siblingIds": [],
+  "createdAt": "2025-05-31T00:00:00Z",
+  "updatedAt": "2025-05-31T00:00:00Z"
+}
