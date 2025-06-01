@@ -12,6 +12,9 @@ const PASSWORD_HASHES = {
   // Add additional password hashes as needed
 };
 
+// For GitHub Actions, the password might be passed directly
+const GITHUB_PASSWORD = process.env.FAMILY_TREE_PASSWORD || '';
+
 /**
  * Hash a password using bcrypt
  * This is used for initial password setup/testing
@@ -37,11 +40,26 @@ export async function verifyPassword(password: string, hash: string): Promise<bo
  * Authenticate user with password
  */
 export async function authenticateWithPassword(password: string): Promise<boolean> {
-  if (!password || !PASSWORD_HASHES.main) {
+  if (!password) {
     return false;
   }
 
-  return await verifyPassword(password, PASSWORD_HASHES.main);
+  // In development mode, skip authentication
+  if (process.env.NODE_ENV === 'development') {
+    return true;
+  }
+
+  // If we have a direct password from GitHub secrets, compare directly
+  if (GITHUB_PASSWORD && password === GITHUB_PASSWORD) {
+    return true;
+  }
+
+  // If we have a password hash, verify against it
+  if (PASSWORD_HASHES.main) {
+    return await verifyPassword(password, PASSWORD_HASHES.main);
+  }
+
+  return false;
 }
 
 /**
@@ -72,13 +90,23 @@ export function setAuthSession(token: string): void {
  * Get current session token
  */
 export function getSessionToken(): string | undefined {
-  return Cookies.get(SESSION_COOKIE_NAME);
+  try {
+    return Cookies.get(SESSION_COOKIE_NAME);
+  } catch (error) {
+    // Handle SSR or cookie access issues
+    return undefined;
+  }
 }
 
 /**
  * Check if user is authenticated
  */
 export function isAuthenticated(): boolean {
+  // In development mode, always authenticated
+  if (process.env.NODE_ENV === 'development') {
+    return true;
+  }
+
   const token = getSessionToken();
   if (!token) return false;
 

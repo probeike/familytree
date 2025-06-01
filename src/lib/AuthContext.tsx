@@ -37,15 +37,25 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // Initial authentication check
-    checkAuth();
+    try {
+      checkAuth();
+    } catch (error) {
+      console.error('Auth check failed:', error);
+      // In development mode, just assume authenticated
+      if (process.env.NODE_ENV === 'development') {
+        setIsLoggedIn(true);
+      }
+    }
     setIsInitialized(true);
 
-    // Set up periodic session checks
-    const interval = setInterval(() => {
-      checkAuth();
-    }, 5 * 60 * 1000); // Check every 5 minutes
+    // Set up periodic session checks only in production
+    if (process.env.NODE_ENV === 'production') {
+      const interval = setInterval(() => {
+        checkAuth();
+      }, 5 * 60 * 1000); // Check every 5 minutes
 
-    return () => clearInterval(interval);
+      return () => clearInterval(interval);
+    }
   }, []);
 
   // Don't render children until auth state is initialized
