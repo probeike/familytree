@@ -44,12 +44,17 @@ jobs:
           # server side image optimization (so it can work properly in a pages environment).
           static_site_generator: next
 
+      - name: Setup SSH key for private repo
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.FAMILY_TREE_DATA_DEPLOY_KEY }}
+
       - name: Checkout family data repository
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository_owner }}/familytree-data
           path: family-tree-data
-          token: ${{ secrets.GITHUB_TOKEN }}
+          ssh-key: ${{ secrets.FAMILY_TREE_DATA_DEPLOY_KEY }}
 
       - name: Copy family data to app
         run: |
