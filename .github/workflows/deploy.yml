@@ -56,17 +56,14 @@ jobs:
           path: family-tree-data
           ssh-key: ${{ secrets.FAMILY_TREE_DATA_DEPLOY_KEY }}
 
-      - name: Copy family data to app
+      - name: Process genealogy data
         run: |
-          # Copy processed data from family-tree-data repo to app data directory
-          if [ -d "family-tree-data/processed" ]; then
-            cp -r family-tree-data/processed/* data/
-          fi
-          
-          # Copy media files to public directory
-          if [ -d "family-tree-data/processed/media" ]; then
-            mkdir -p public/media
-            cp -r family-tree-data/processed/media/* public/media/
+          # Process raw genealogy data if processed data doesn't exist
+          if [ ! -d "family-tree-data/processed" ] || [ -z "$(ls -A family-tree-data/processed 2>/dev/null)" ]; then
+            echo "🔄 Processing raw genealogy data..."
+            npm run process-data
+          else
+            echo "✅ Using existing processed data"
           fi
 
       - name: Build with Next.js

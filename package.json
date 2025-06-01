@@ -4,16 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run build:data && next build",
+    "build:data": "node scripts/build-data.js",
+    "build:next": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && next export",
-    "deploy": "npm run export && touch out/.nojekyll"
+    "export": "npm run build && next export",
+    "deploy": "npm run export && touch out/.nojekyll",
+    "process-data": "node scripts/process-genealogy-data.js"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.6",
     "@types/js-cookie": "^3.0.6",
     "bcryptjs": "^3.0.2",
+    "cheerio": "^1.0.0",
     "clsx": "^2.1.1",
     "d3": "^7.9.0",
     "date-fns": "^4.1.0",
