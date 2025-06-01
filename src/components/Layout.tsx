@@ -1,6 +1,9 @@
+'use client';
+
 import { ReactNode } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import { AuthProvider } from '@/lib/AuthContext';
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,13 +12,15 @@ interface LayoutProps {
 
 export default function Layout({ children, className }: LayoutProps) {
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-      <Header />
-      <main className={`flex-1 ${className || ''}`}>
-        {children}
-      </main>
-      <Footer />
-    </div>
+    <AuthProvider>
+      <div className="min-h-screen bg-white flex flex-col">
+        <Header />
+        <main className={`flex-1 ${className || ''}`}>
+          {children}
+        </main>
+        <Footer />
+      </div>
+    </AuthProvider>
   );
 }
 

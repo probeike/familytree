@@ -2,12 +2,18 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { useAuth } from '@/lib/AuthContext';
 import { cn } from '@/lib/utils';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isLoggedIn, logout } = useAuth();
 
-  const navigation = [
+  const publicNavigation = [
+    { name: 'Home', href: '/' },
+  ];
+
+  const privateNavigation = [
     { name: 'Home', href: '/' },
     { name: 'Family Tree', href: '/tree' },
     { name: 'People', href: '/people' },
@@ -15,6 +21,8 @@ export default function Header() {
     { name: 'Media', href: '/media' },
     { name: 'Search', href: '/search' },
   ];
+
+  const navigation = isLoggedIn ? privateNavigation : publicNavigation;
 
   return (
     <header className="bg-white shadow-sm border-b border-gray-200">
@@ -34,17 +42,38 @@ export default function Header() {
           </div>
 
           {/* Desktop navigation */}
-          <nav className="hidden md:flex space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
+          <div className="hidden md:flex items-center space-x-8">
+            <nav className="flex space-x-8">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+            
+            {/* Authentication button */}
+            <div className="flex items-center">
+              {isLoggedIn ? (
+                <button
+                  onClick={logout}
+                  className="text-gray-700 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  href="/login"
+                  className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  Login
+                </Link>
+              )}
+            </div>
+          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -86,6 +115,29 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
+              
+              {/* Mobile authentication */}
+              <div className="pt-3 border-t border-gray-200">
+                {isLoggedIn ? (
+                  <button
+                    onClick={() => {
+                      logout();
+                      setIsMenuOpen(false);
+                    }}
+                    className="block w-full text-left px-3 py-2 text-gray-700 hover:text-red-600 hover:bg-gray-50 rounded-md text-base font-medium transition-colors"
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="block px-3 py-2 bg-blue-600 text-white hover:bg-blue-700 rounded-md text-base font-medium transition-colors text-center"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                )}
+              </div>
             </nav>
           </div>
         )}
