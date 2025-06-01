@@ -37,29 +37,28 @@ export async function verifyPassword(password: string, hash: string): Promise<bo
 }
 
 /**
- * Authenticate user with password
+ * Authenticate user with password (client-side - calls API)
  */
 export async function authenticateWithPassword(password: string): Promise<boolean> {
   if (!password) {
     return false;
   }
 
-  // In development mode, skip authentication
-  if (process.env.NODE_ENV === 'development') {
-    return true;
-  }
+  try {
+    const response = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ password }),
+    });
 
-  // If we have a direct password from GitHub secrets, compare directly
-  if (GITHUB_PASSWORD && password === GITHUB_PASSWORD) {
-    return true;
+    const data = await response.json();
+    return data.success === true;
+  } catch (error) {
+    console.error('Authentication request failed:', error);
+    return false;
   }
-
-  // If we have a password hash, verify against it
-  if (PASSWORD_HASHES.main) {
-    return await verifyPassword(password, PASSWORD_HASHES.main);
-  }
-
-  return false;
 }
 
 /**
@@ -102,11 +101,6 @@ export function getSessionToken(): string | undefined {
  * Check if user is authenticated
  */
 export function isAuthenticated(): boolean {
-  // In development mode, always authenticated
-  if (process.env.NODE_ENV === 'development') {
-    return true;
-  }
-
   const token = getSessionToken();
   if (!token) return false;
 

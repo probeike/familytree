@@ -73,7 +73,7 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
-          FAMILY_TREE_PASSWORD_HASH: ${{ secrets.FAMILY_TREE_PASSWORD_HASH }}
+          FAMILY_TREE_PASSWORD: ${{ secrets.FAMILY_TREE_PASSWORD }}
           FAMILY_TREE_DATA_REPO: familytree-data
 
       - name: Add .nojekyll file
